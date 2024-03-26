@@ -1,0 +1,45 @@
+@startuml
+
+class Usuario {
+    + id: integer
+    nombre: string
+    email: string
+}
+
+class Libro {
+    + id: integer
+    titulo: string
+    autor_id: integer
+}
+
+class Resena {
+    + id: integer
+    texto: string
+    usuario_id: integer
+    libro_id: integer
+}
+
+class Autor {
+    + id: integer
+    nombre: string
+}
+
+class Categoria {
+    + id: integer
+    nombre: string
+}
+
+class LibroCategoria {
+    + id: integer
+    libro_id: integer
+    categoria_id: integer
+}
+
+Usuario "1" -- "n" Resena 
+Resena "1" -- "1" Libro 
+Libro "n" -- "1" Autor 
+Libro "n" -- "n" LibroCategoria
+LibroCategoria "n" -- "n" Categoria 
+
+@enduml
+
